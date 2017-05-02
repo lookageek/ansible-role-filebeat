@@ -1,6 +1,4 @@
 ---
-dependencies: []
-
 galaxy_info:
   author: lookageek
   description: Filebeat for Linux.

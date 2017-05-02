@@ -8,5 +8,5 @@
   systemd:
     name: filebeat
     state: started
-    enabled: {{ filebeat_enabled_on_boot }}
+    enabled: "{{ filebeat_enabled_on_boot }}"
     daemon_reload: yes
