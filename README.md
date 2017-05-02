@@ -1,8 +1,6 @@
-# Ansible Role: Filebeat for ELK Stack
+# Ansible Role: Filebeat
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-filebeat.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-filebeat)
-
-An Ansible Role that installs [Filebeat](https://www.elastic.co/products/beats/filebeat) on RedHat/CentOS or Debian/Ubuntu.
+An Ansible Role that installs Filebeat on Debian/Ubuntu with systemd.
 
 ## Requirements
 
@@ -11,6 +9,18 @@ None.
 ## Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
+
+    elasticstack_deb_repo: "5.x"
+
+The elasticstack debian repo version
+
+    filebeat_version: "5.3.2"
+
+Specific filebeat version to install
+
+    filebeat_enabled_on_boot: yes
+
+Set this to `no` if you don't want filebeat to run on system startup.
 
     filebeat_create_config: true
 
@@ -31,11 +41,11 @@ Whether to enable Elasticsearch output, and which hosts to send output to.
 
     filebeat_output_logstash_enabled: true
     filebeat_output_logstash_hosts:
-      - "localhost:5000"
+      - "localhost:5044"
 
 Whether to enable Logstash output, and which hosts to send output to.
 
-    filebeat_enable_logging: false 
+    filebeat_enable_logging: false
     filebeat_log_level: warning
     filebeat_log_dir: /var/log/filebeat
     filebeat_log_filename: filebeat.log
@@ -67,19 +77,10 @@ Set this to `"true"` to allow the use of self-signed certificates (when a CA isn
 
 None.
 
-## Example Playbook
-
-    - hosts: logs
-      roles:
-        - geerlingguy.java
-        - geerlingguy.elasticsearch
-        - geerlingguy.logstash
-        - geerlingguy.filebeat
-
 ## License
 
 MIT / BSD
 
 ## Author Information
 
-This role was created in 2016 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+This role was created in 2017 by Jayanth Manklu cloning from [geerlingguy/ansible-role-filebeat](https://github.com/geerlingguy/ansible-role-filebeat).
