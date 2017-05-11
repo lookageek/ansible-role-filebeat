@@ -5,6 +5,8 @@ filebeat_prospectors:
   - input_type: log
     paths:
       - "/var/log/*.log"
+    json.message_key: event
+    json.keys_under_root: "true"
 
 filebeat_output_elasticsearch_enabled: false
 filebeat_output_elasticsearch_hosts:

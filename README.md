@@ -30,6 +30,8 @@ Whether to create the Filebeat configuration file and handle the copying of SSL 
       - input_type: log
         paths:
           - "/var/log/*.log"
+        json.message_key: event
+        json.keys_under_root: "true"
 
 Prospectors that will be listed in the `prospectors` section of the Filebeat configuration. Read through the [Filebeat Prospectors configuration guide](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-filebeat-options.html) for more options.
 
