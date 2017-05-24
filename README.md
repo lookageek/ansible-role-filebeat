@@ -51,6 +51,8 @@ Whether to enable Logstash output, and which hosts to send output to.
     filebeat_log_level: warning
     filebeat_log_dir: /var/log/filebeat
     filebeat_log_filename: filebeat.log
+    filebeat_log_to_file: "true"
+    filebeat_log_to_syslog: "false"
 
 Filebeat logging.
 
