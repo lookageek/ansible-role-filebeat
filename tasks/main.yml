@@ -1,18 +1,12 @@
 ---
-- include: setup-RedHat.yml
-  when: ansible_os_family == 'RedHat'
-
-- include: setup-Debian.yml
-  when: ansible_os_family == 'Debian'
-
-- name: Install Filebeat.
-  package: name=filebeat state=present
+- include: setup.yml
 
 - include: config.yml
   when: filebeat_create_config
 
 - name: Ensure Filebeat is started and enabled at boot.
-  service:
+  systemd:
     name: filebeat
     state: started
-    enabled: yes
+    enabled: "{{ filebeat_enabled_on_boot }}"
+    daemon_reload: yes

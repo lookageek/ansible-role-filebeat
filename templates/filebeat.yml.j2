@@ -137,10 +137,10 @@ logging:
   level: {{ filebeat_log_level }}
 
   # Enable file rotation with default configuration
-  to_files: true
+  to_files: {{ filebeat_log_to_file }}
 
   # Do not log to syslog
-  to_syslog: false
+  to_syslog: {{ filebeat_log_to_syslog }}
 
   files:
     path: {{ filebeat_log_dir }}
