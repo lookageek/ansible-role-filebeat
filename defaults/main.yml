@@ -5,14 +5,13 @@ filebeat_prospectors:
   - input_type: log
     paths:
       - "/var/log/*.log"
-    json.message_key: event
     json.keys_under_root: "true"
 
 filebeat_output_elasticsearch_enabled: false
 filebeat_output_elasticsearch_hosts:
   - "localhost:9200"
 
-filebeat_output_logstash_enabled: true
+filebeat_output_logstash_enabled: false
 filebeat_output_logstash_hosts:
   - "localhost:5044"
 
@@ -28,7 +27,7 @@ filebeat_ssl_certificate_file: ""
 filebeat_ssl_key_file: ""
 filebeat_ssl_insecure: "false"
 
-elasticstack_deb_repo: "5.x"
-filebeat_version: "5.6.4"
+elasticstack_deb_repo: "6.x"
+filebeat_version: "6.1.2"
 
 filebeat_enabled_on_boot: yes

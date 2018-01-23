@@ -12,6 +12,8 @@ output:
   elasticsearch:
     # Array of hosts to connect to.
     hosts: {{ filebeat_output_elasticsearch_hosts | to_json }}
+    index: "logs-%{+yyyy.MM.dd}"
+    compression_level: 3
 
     # Optional protocol and basic auth credentials. These are deprecated.
     #protocol: "https"
@@ -93,6 +95,7 @@ output:
   logstash:
     # The Logstash hosts
     hosts: {{ filebeat_output_logstash_hosts | to_json }}
+    compression_level: 3
 
     # Number of workers per Logstash host.
     #worker: 1
@@ -130,6 +133,7 @@ output:
       # Configure curve types for ECDHE based cipher suites
       #curve_types: []
 {% endif %}
+{% endif %}
 
 {% if filebeat_enable_logging %}
 logging:
@@ -146,5 +150,4 @@ logging:
     path: {{ filebeat_log_dir }}
     name: {{ filebeat_log_filename }}
     keepfiles: 7
-{% endif %}
 {% endif %}
