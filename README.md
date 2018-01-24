@@ -27,7 +27,7 @@ Set this to `no` if you don't want filebeat to run on system startup.
 Whether to create the Filebeat configuration file and handle the copying of SSL key and cert for filebeat. If you prefer to create a configuration file yourself you can set this to `false`.
 
     filebeat_prospectors:
-      - input_type: log
+      - type: log
         paths:
           - "/var/log/*.log"
         json.message_key: event

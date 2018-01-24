@@ -12,7 +12,6 @@ output:
   elasticsearch:
     # Array of hosts to connect to.
     hosts: {{ filebeat_output_elasticsearch_hosts | to_json }}
-    index: "logs-%{+yyyy.MM.dd}"
     compression_level: 3
 
     # Optional protocol and basic auth credentials. These are deprecated.
